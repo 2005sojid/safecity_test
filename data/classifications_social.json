@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "classification_id": 1,
+    "name_uz": "Magazin",
+    "name_ru": "Магазин",
+    "name_en": "Grocery"
+  },
+  {
+    "id": 2,
+    "classification_id": 1,
+    "name_uz": "Maktab",
+    "name_ru": "Школа",
+    "name_en": "School"
+  },
+  {
+    "id": 3,
+    "classification_id": 1,
+    "name_uz": "Masjid",
+    "name_ru": "Мечеть",
+    "name_en": "Masjid"
+  }
+]

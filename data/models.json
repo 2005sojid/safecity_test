@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "model_id": 1,
+    "name": "DH-PFS3006-4ET-36"
+  },
+  {
+    "id": 2,
+    "model_id": 1,
+    "name": "DH-PFS3110-8ET-96"
+  },
+  {
+    "id": 3,
+    "model_id": 1,
+    "name": "DS-3E0510P-E8-PoE"
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name_uz": "Axborot tahlil video kuzatuv tizimi",
+    "name_ru": "Информационно-аналитическая система видеонаблюдения",
+    "name_en": "Information-analytical video surveillance system"
+  },
+  {
+    "id": 2,
+    "name_uz": "Raqamli xavfsiz mahalla",
+    "name_ru": "Цифровой безопасный махалля",
+    "name_en": "Digital Safe Neighborhood"
+  },
+  {
+    "id": 3,
+    "name_uz": "Xavfsiz shahar",
+    "name_ru": "Безопасный город",
+    "name_en": "Safe City"
+  }
+]
