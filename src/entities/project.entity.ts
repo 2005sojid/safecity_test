@@ -2,9 +2,12 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { OrderEntity } from './order.entity';
+import { ObjectEntity } from './object.entity';
 
 @Entity({ name: 'projects' })
 export class ProjectEntity {
@@ -19,6 +22,12 @@ export class ProjectEntity {
 
   @Column()
   name_en: string;
+
+  @OneToMany(() => OrderEntity, (order) => order.project)
+  orders: OrderEntity[];
+
+  @OneToMany(() => ObjectEntity, (object) => object.region)
+  objects: ObjectEntity[];
 
   @CreateDateColumn()
   createdAt: Date;

@@ -8,6 +8,7 @@ import {
 } from 'typeorm';
 import { DistrictEntity } from './district.entity';
 import { OrderEntity } from './order.entity';
+import { ObjectEntity } from './object.entity';
 
 @Entity({ name: 'regions' })
 export class RegionEntity {
@@ -25,6 +26,9 @@ export class RegionEntity {
 
   @OneToMany(() => OrderEntity, (order) => order.region)
   orders: OrderEntity[];
+
+  @OneToMany(() => ObjectEntity, (object) => object.region)
+  objects: ObjectEntity[];
 
   @CreateDateColumn()
   createdAt: Date;

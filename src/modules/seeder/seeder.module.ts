@@ -5,8 +5,7 @@ import { RegionEntity } from '../../entities/region.entity';
 import { DistrictEntity } from '../../entities/district.entity';
 import { ProjectEntity } from '../../entities/project.entity';
 import { ClassificationEntity } from '../../entities/classification.entity';
-import { OrderEntity } from '../../entities/order.entity';
-import { ClassificationSocialEntity } from '../../entities/classification_social.entity';
+import { ClassificationEntryEntity } from '../../entities/classification_entries.entity';
 import { ModelEntity } from '../../entities/model.entity';
 import { ModelTypeEntity } from '../../entities/model_type.entity';
 
@@ -17,8 +16,7 @@ import { ModelTypeEntity } from '../../entities/model_type.entity';
       DistrictEntity,
       ProjectEntity,
       ClassificationEntity,
-      OrderEntity,
-      ClassificationSocialEntity,
+      ClassificationEntryEntity,
       ModelEntity,
       ModelTypeEntity,
     ]),

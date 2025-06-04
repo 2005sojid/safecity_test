@@ -1,6 +1,8 @@
 [
   {
-    "id": 1,
     "name": "Switch PoE"
+  },
+  {
+    "name": "Switch kombo"
   }
 ]

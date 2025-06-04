@@ -7,7 +7,8 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-import { ClassificationSocialEntity } from './classification_social.entity';
+import { ClassificationEntryEntity } from './classification_entries.entity';
+import { ObjectEntity } from './object.entity';
 
 @Entity({ name: 'classifications' })
 export class ClassificationEntity {
@@ -23,11 +24,11 @@ export class ClassificationEntity {
   @Column()
   name_en: string;
 
-  @OneToMany(
-    () => ClassificationSocialEntity,
-    (object) => object.classification,
-  )
-  entries: ClassificationSocialEntity[];
+  @OneToMany(() => ClassificationEntryEntity, (object) => object.classification)
+  entries: ClassificationEntryEntity[];
+
+  @OneToMany(() => ObjectEntity, (object) => object.region)
+  objects: ObjectEntity[];
 
   @CreateDateColumn()
   createdAt: Date;

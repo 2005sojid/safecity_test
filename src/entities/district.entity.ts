@@ -4,10 +4,12 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import { RegionEntity } from './region.entity';
+import { ObjectEntity } from './object.entity';
 
 @Entity({ name: 'districts' })
 export class DistrictEntity {
@@ -28,6 +30,9 @@ export class DistrictEntity {
   })
   @JoinColumn({ name: 'region_id' })
   region: RegionEntity;
+
+  @OneToMany(() => ObjectEntity, (object) => object.region)
+  objects: ObjectEntity[];
 
   @CreateDateColumn()
   createdAt: Date;
