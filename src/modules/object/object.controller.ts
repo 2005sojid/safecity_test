@@ -13,7 +13,11 @@ import { ObjectEntity } from '../../entities/object.entity';
 import { CreateObjectDto } from './dto/create-object.dto';
 import { UpdateObjectDto } from './dto/update-object.dto';
 import { ObjectFilters } from '../../filters.interface';
+import { ApiTags } from '@nestjs/swagger';
+import { Authorization } from '../auth/decorators/authorization.decorator';
 
+@Authorization()
+@ApiTags('Objects')
 @Controller('objects')
 export class ObjectController {
   constructor(private readonly objectService: ObjectService) {}

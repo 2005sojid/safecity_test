@@ -12,7 +12,11 @@ import { ProjectEntity } from '../../entities/project.entity';
 import { CreateProjectDto } from './dto/create-project.dto';
 import { UpdateProjectDto } from './dto/update-project.dto';
 import { OrderEntity } from '../../entities/order.entity';
+import { ApiTags } from '@nestjs/swagger';
+import { Authorization } from '../auth/decorators/authorization.decorator';
 
+@Authorization()
+@ApiTags('Projects')
 @Controller('projects')
 export class ProjectController {
   constructor(private readonly projectService: ProjectService) {}

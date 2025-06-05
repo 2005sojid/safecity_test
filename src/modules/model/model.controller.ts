@@ -11,7 +11,11 @@ import {
 import { ModelService } from './model.service';
 import { CreateModelDto } from './dto/create-model.dto';
 import { UpdateModelDto } from './dto/update-model.dto';
+import { ApiTags } from '@nestjs/swagger';
+import { Authorization } from '../auth/decorators/authorization.decorator';
 
+@Authorization()
+@ApiTags('Models')
 @Controller('models')
 export class ModelController {
   constructor(private readonly modelService: ModelService) {}

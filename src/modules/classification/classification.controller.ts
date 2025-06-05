@@ -12,7 +12,11 @@ import { ClassificationService } from './classification.service';
 import { CreateClassificationDto } from './dto/create-classification.dto';
 import { UpdateClassificationDto } from './dto/update-classification.dto';
 import { CreateClassificationEntryDto } from './dto/create-entry.dto';
+import { ApiTags } from '@nestjs/swagger';
+import { Authorization } from '../auth/decorators/authorization.decorator';
 
+@Authorization()
+@ApiTags('Classifications')
 @Controller('classifications')
 export class ClassificationController {
   constructor(private readonly service: ClassificationService) {}

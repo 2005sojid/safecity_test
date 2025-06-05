@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { getTypeOrmConfig } from './config/database.config';
@@ -13,6 +11,8 @@ import { ClassificationModule } from './modules/classification/classification.mo
 import { ModelModule } from './modules/model/model.module';
 import { ModelTypeModule } from './modules/model_type/model_type.module';
 import { ObjectModule } from './modules/object/object.module';
+import { AuthModule } from './modules/auth/auth.module';
+import { UserModule } from './modules/user/user.module';
 
 @Module({
   imports: [
@@ -22,6 +22,7 @@ import { ObjectModule } from './modules/object/object.module';
       useFactory: getTypeOrmConfig,
       inject: [ConfigService],
     }),
+    AuthModule,
     SeederModule,
     RegionModule,
     DistrictModule,
@@ -31,8 +32,9 @@ import { ObjectModule } from './modules/object/object.module';
     ModelModule,
     ModelTypeModule,
     ObjectModule,
+    UserModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
