@@ -11,7 +11,7 @@ export class ObjectService {
     private readonly objectRepository: Repository<ObjectEntity>,
   ) {}
 
-  findAll(filters?: ObjectFilters) {
+  async findAll(filters?: ObjectFilters & { page?: number; limit?: number }) {
     const query = this.objectRepository
       .createQueryBuilder('object')
       .leftJoinAndSelect('object.region', 'region')
@@ -33,6 +33,8 @@ export class ObjectService {
         'district.name_uz',
         'project.name_uz',
       ]);
+
+    // Apply filters
     if (filters) {
       if (filters.regionId) {
         query.andWhere('object.region_id = :regionId', {
@@ -67,8 +69,23 @@ export class ObjectService {
           },
         );
       }
+
+      // Apply pagination
+      const page = filters.page ?? 1;
+      const limit = Math.min(filters.limit ?? 10, 100); // enforce max limit
+      const skip = (page - 1) * limit;
+
+      query.skip(skip).take(limit);
     }
-    return query.getRawMany();
+
+    const [data, total] = await query.getManyAndCount();
+
+    return {
+      data,
+      total,
+      page: filters?.page ?? 1,
+      lastPage: Math.ceil(total / (filters?.limit ?? 10)),
+    };
   }
 
   findOne(id: number) {

@@ -6,7 +6,8 @@ import {
   Delete,
   Param,
   Body,
-  ParseIntPipe, Query,
+  ParseIntPipe,
+  Query,
 } from '@nestjs/common';
 import { ObjectService } from './object.service';
 import { ObjectEntity } from '../../entities/object.entity';
@@ -23,7 +24,14 @@ export class ObjectController {
   constructor(private readonly objectService: ObjectService) {}
 
   @Get()
-  getAll(@Query() filters: ObjectFilters): Promise<ObjectEntity[]> {
+  getAll(
+    @Query() filters: ObjectFilters & { page?: number; limit?: number },
+  ): Promise<{
+    data: ObjectEntity[];
+    total: number;
+    page: number;
+    lastPage: number;
+  }> {
     return this.objectService.findAll(filters);
   }
 
