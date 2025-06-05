@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ObjectEntity } from '../../entities/object.entity';
-import { ObjectFilters } from '../../filters.interface';
+import { ObjectFilters } from './interfaces/filters.interface';
 
 @Injectable()
 export class ObjectService {
